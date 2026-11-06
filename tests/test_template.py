@@ -20,7 +20,7 @@ TESTS_DIR = Path(__file__).parent
 LAB_DIR = TESTS_DIR.parent
 
 # Resolve module paths
-SOLUTION_PATH = LAB_DIR / "solution-code" / "solution.py"
+SOLUTION_PATH = LAB_DIR / "solution" / "solution.py"
 TEMPLATE_PATH = LAB_DIR / "starter-code" / "template.py"
 
 def _load_module(path: Path, unique_name: str):
@@ -207,7 +207,7 @@ class TestBatchCompareAndFormat(unittest.TestCase):
 
     def test_batch_runs_and_formats_table(self):
         with patch.object(_m, "compare_models") as mock_comp:
-            def _get_mock():
+            def _get_mock(prompt):
                 return {
                     "gpt4o": {"response": "GPT-4o response content here", "latency": 0.5, "cost": 0.00045, "input_tokens": 10, "output_tokens": 20},
                     "gpt4o_mini": {"response": "GPT-4o-Mini response content here", "latency": 0.3, "cost": 0.0000135, "input_tokens": 10, "output_tokens": 20},

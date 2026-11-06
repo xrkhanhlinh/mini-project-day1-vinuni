@@ -30,7 +30,7 @@
      source .venv/bin/activate
      ```
 
-3. **Cài đặt thư viện từ [requirements.txt](file:///j:/VinUniCodelab/VinUni_Codelab_Day01/requirements.txt):**
+3. **Cài đặt thư viện từ [requirements.txt](requirements.txt):**
    ```bash
    pip install -r requirements.txt
    ```
@@ -80,9 +80,31 @@ Bạn có thể thiết lập biến môi trường trực tiếp từ terminal 
   ```
 
 > [!TIP]
-> Để tránh việc phải nhập lại lệnh thiết lập mỗi khi tắt terminal, bạn có thể tạo một file [.env](file:///j:/VinUniCodelab/VinUni_Codelab_Day01/.env) đặt ở thư mục gốc của project (sử dụng mẫu từ [.env.example](file:///j:/VinUniCodelab/VinUni_Codelab_Day01/.env.example)) và sử dụng thư viện `python-dotenv` để load tự động trong code.
+> Để tránh việc phải nhập lại lệnh thiết lập mỗi khi tắt terminal, tạo file `.env` ở thư mục gốc với dòng `GEMINI_API_KEY=key_cua_ban`. Code đã dùng `python-dotenv` để tự đọc file này. Thêm `OPENAI_API_KEY` hoặc `ANTHROPIC_API_KEY` nếu muốn gọi các dịch vụ tương ứng.
 
 ---
+
+### 🔹 1.4 Chạy chatbot trong Terminal
+
+Trong VS Code, mở `starter-code/run_gemini.py` và bấm **▶ Run Python File**
+ở góc trên bên phải. Hoặc nhấn **Ctrl+F5** để chạy cấu hình **Chatbot Gemini**.
+Nhập tin nhắn trong tab **Terminal** sau khi chatbot khởi động.
+
+Thêm `GEMINI_API_KEY` vào file `.env` ở thư mục gốc, sau đó chạy:
+
+```powershell
+.\.venv\Scripts\python.exe starter-code/run_gemini.py
+```
+
+Nhập tin nhắn tại `You:` rồi nhấn Enter. Gemini trả lời dần trong Terminal
+và dùng tối đa 3 lượt hội thoại trước làm ngữ cảnh. Gõ `/clear` để xóa lịch sử,
+`exit` hoặc `quit` để thoát. Lịch sử chỉ được giữ trong phiên đang chạy.
+
+Để chỉ hỏi một câu:
+
+```powershell
+.\.venv\Scripts\python.exe starter-code/run_gemini.py "Xin chào"
+```
 
 ## 🚀 2. Lộ trình triển khai (Recommended Flow)
 
@@ -145,6 +167,8 @@ Chúng ta sẽ sử dụng SDK mới nhất của Google (`google-genai`):
   input_tokens = response.usage_metadata.prompt_token_count
   output_tokens = response.usage_metadata.candidates_token_count
   ```
+
+
 
 ---
 

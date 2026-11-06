@@ -1,0 +1,19 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Chatbot Gemini",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/starter-code/run_gemini.py",
+      "python": "${workspaceFolder}/.venv/Scripts/python.exe",
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env",
+      "env": {
+        "PYTHONIOENCODING": "utf-8"
+      },
+      "justMyCode": true
+    }
+  ]
+}
